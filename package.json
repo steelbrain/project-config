@@ -26,15 +26,15 @@
     "url": "https://github.com/steelbrain/project-config/issues"
   },
   "dependencies": {
+    "sb-fs": "^4.0.0",
+    "tildify": "^2.0.0"
+  },
+  "devDependencies": {
     "@babel/core": "^7.8.4",
     "@babel/preset-env": "^7.8.4",
     "@babel/preset-typescript": "^7.8.3",
     "sb-babel-cli": "^3.0.0",
-    "sb-fs": "^4.0.0",
-    "tildify": "^2.0.0",
-    "typescript": "^3.7.5"
-  },
-  "devDependencies": {
+    "typescript": "^3.7.5",
     "@types/atom": "^1.36.2",
     "eslint-config-steelbrain": "^9.0.1"
   }
