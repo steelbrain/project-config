@@ -1,0 +1,14 @@
+{
+  "extends": ["steelbrain"],
+  "rules": {
+    "import/extensions": "off",
+    "@typescript-eslint/member-delimiter-style": ["error", {
+      "multiline": {
+        "delimiter": "none"
+      }
+    }]
+  },
+  "globals": {
+    "atom": true
+  }
+}

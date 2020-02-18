@@ -1,0 +1,41 @@
+{
+  "name": "project-config",
+  "version": "0.0.0",
+  "description": "Project-specific config package for Atom",
+  "main": "lib/index.js",
+  "scripts": {
+    "test:typescript": "tsc -p . --noEmit",
+    "test:lint": "eslint .",
+    "test:prettier": "prettier -l '{src,spec}/**/*.ts'",
+    "test": "(npm run test:typescript) && (npm run test:lint) && (npm run test:prettier)",
+    "prepare": "sb-babel-cli -o lib src --typescript",
+    "watch": "npm run prepare -- -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/steelbrain/project-config"
+  },
+  "keywords": [
+    "atom",
+    "project",
+    "config"
+  ],
+  "author": "steelbrain <i@steelbrain.me>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/steelbrain/project-config/issues"
+  },
+  "dependencies": {
+    "@babel/core": "^7.8.4",
+    "@babel/preset-env": "^7.8.4",
+    "@babel/preset-typescript": "^7.8.3",
+    "sb-babel-cli": "^3.0.0",
+    "sb-fs": "^4.0.0",
+    "tildify": "^2.0.0",
+    "typescript": "^3.7.5"
+  },
+  "devDependencies": {
+    "@types/atom": "^1.36.2",
+    "eslint-config-steelbrain": "^9.0.1"
+  }
+}
