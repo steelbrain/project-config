@@ -12,7 +12,7 @@ apm install project-config
 
 ### Usage
 
-Project Config looks for `.atom/config.json` in the workspace, if you have added multiple paths to your Atom Project, it'll always use the first one. Any changes made to the configuration file are applied on the fly (within 5s).
+Project Config looks for `.atom/config.json` in the workspace, if you have added multiple paths to your Atom Project, it'll always use the first one. Any changes made to the configuration file are applied on the fly (within 5s). Project Config requires **no changes** from package authors, it's a drop-in feature.
 
 Here's an example config file that enables format on save on `prettier-atom` inside a project:
 
