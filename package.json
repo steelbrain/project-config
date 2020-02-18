@@ -1,6 +1,6 @@
 {
   "name": "project-config",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Project-specific config package for Atom",
   "main": "lib/index.js",
   "scripts": {
