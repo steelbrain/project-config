@@ -59,7 +59,7 @@ class ProjectConfig {
     if (!(await sbFs.exists(this.configPath))) {
       return null
     }
-    let rawContents
+    let rawContents: string
     try {
       rawContents = await sbFs.readFile(this.configPath, 'utf8')
     } catch (_) {
@@ -72,9 +72,12 @@ class ProjectConfig {
       return {}
     }
 
-    let contents
+    let contents: Record<string, any>
     try {
       contents = JSON.parse(rawContents)
+      if (typeof contents !== 'object' || contents == null) {
+        throw new Error('JSON value is not an object')
+      }
     } catch (error) {
       const message = 'Error reading Project Config file'
       const detail = `Malformed JSON found at ${CONFIG_PATH} in ${tildify(this.rootDirectory)}`
