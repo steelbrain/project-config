@@ -1,8 +1,8 @@
 import fs from 'fs'
-import sbFs from 'sb-fs'
 import path from 'path'
 import tildify from 'tildify'
 import { CompositeDisposable, Disposable } from 'atom'
+import { fileExists, fileRead } from './helpers'
 
 const CONFIG_PATH = '.atom/config.json'
 
@@ -56,12 +56,12 @@ class ProjectConfig {
   }
 
   private async readConfig(): Promise<null | Record<string, any>> {
-    if (!(await sbFs.exists(this.configPath))) {
+    if (!(await fileExists(this.configPath))) {
       return null
     }
     let rawContents: string
     try {
-      rawContents = await sbFs.readFile(this.configPath, 'utf8')
+      rawContents = await fileRead(this.configPath)
     } catch (_) {
       /* No Op */
       return null

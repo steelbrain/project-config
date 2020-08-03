@@ -26,7 +26,6 @@
     "url": "https://github.com/steelbrain/project-config/issues"
   },
   "dependencies": {
-    "sb-fs": "^4.0.0",
     "tildify": "^2.0.0"
   },
   "devDependencies": {
