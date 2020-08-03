@@ -1,8 +1,8 @@
 import fs from 'fs'
-import sbFs from 'sb-fs'
 import path from 'path'
 import tildify from 'tildify'
 import { CompositeDisposable, Disposable } from 'atom'
+import { fileExists, fileRead } from './helpers'
 
 const CONFIG_PATH = '.atom/config.json'
 
@@ -17,7 +17,7 @@ class ProjectConfig {
     this.configPath = path.join(rootDirectory, CONFIG_PATH)
   }
 
-  public async activate() {
+  public async activate(): Promise<void> {
     if (this.disposed) {
       throw new Error('Cannot activate a disposed ProjectConfig')
     }
@@ -30,10 +30,10 @@ class ProjectConfig {
     const watcher = () => {
       console.log(`Config file updated at ${this.configPath}. Reloading.`)
       this.readConfig()
-        .then(newConfig => {
+        .then((newConfig) => {
           this.applyConfig(newConfig || {})
         })
-        .catch(error => {
+        .catch((error) => {
           console.error(`Error reloading Config File at ${this.configPath}`, { error })
         })
     }
@@ -56,12 +56,12 @@ class ProjectConfig {
   }
 
   private async readConfig(): Promise<null | Record<string, any>> {
-    if (!(await sbFs.exists(this.configPath))) {
+    if (!(await fileExists(this.configPath))) {
       return null
     }
     let rawContents: string
     try {
-      rawContents = await sbFs.readFile(this.configPath, 'utf8')
+      rawContents = await fileRead(this.configPath)
     } catch (_) {
       /* No Op */
       return null
@@ -98,7 +98,7 @@ class ProjectConfig {
     return contents
   }
 
-  public dispose() {
+  public dispose(): void {
     this.disposed = true
     this.subscriptions.dispose()
   }

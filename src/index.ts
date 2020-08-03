@@ -3,7 +3,7 @@ import ProjectConfig from './ProjectConfig'
 
 let subscriptions: CompositeDisposable | null = null
 
-export function activate() {
+export function activate(): void {
   if (subscriptions) {
     subscriptions.dispose()
     subscriptions = null
@@ -41,7 +41,7 @@ export function activate() {
     const newProjectConfig = new ProjectConfig(path)
     projectConfig = newProjectConfig
 
-    newProjectConfig.activate().catch(error => {
+    newProjectConfig.activate().catch((error) => {
       console.log(`Error activating Project Config at ${path}`, {
         error,
       })
@@ -59,7 +59,7 @@ export function activate() {
   subscriptions = newSubscriptions
 }
 
-export function deactivate() {
+export function deactivate(): void {
   if (subscriptions) {
     subscriptions.dispose()
   }
