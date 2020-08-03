@@ -29,12 +29,11 @@
     "tildify": "^2.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "@babel/preset-typescript": "^7.8.3",
-    "sb-babel-cli": "^3.0.0",
-    "typescript": "^3.7.5",
-    "@types/atom": "^1.36.2",
-    "eslint-config-steelbrain": "^9.0.1"
+    "@babel/core": "^7.11.0",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-typescript": "^7.10.4",
+    "@types/atom": "^1.40.4",
+    "eslint-config-steelbrain": "^10.0.0-beta2",
+    "typescript": "^3.7.5"
   }
 }

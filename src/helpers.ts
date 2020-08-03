@@ -2,7 +2,7 @@ import fs from 'fs'
 
 export function fileRead(filePath: string): Promise<string> {
   return new Promise((resolve, reject) => {
-    fs.readFile(filePath, 'utf8', function(err, res) {
+    fs.readFile(filePath, 'utf8', function (err, res) {
       if (err) {
         reject(err)
       } else {
@@ -13,8 +13,8 @@ export function fileRead(filePath: string): Promise<string> {
 }
 
 export function fileExists(filePath: string): Promise<boolean> {
-  return new Promise(resolve => {
-    fs.access(filePath, fs.constants.R_OK, err => {
+  return new Promise((resolve) => {
+    fs.access(filePath, fs.constants.R_OK, (err) => {
       resolve(err === null)
     })
   })

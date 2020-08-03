@@ -1,7 +1,6 @@
 {
   "extends": ["steelbrain"],
   "rules": {
-    "import/extensions": "off",
     "import/no-unresolved": "off",
     "@typescript-eslint/member-delimiter-style": ["error", {
       "multiline": {

@@ -17,7 +17,7 @@ class ProjectConfig {
     this.configPath = path.join(rootDirectory, CONFIG_PATH)
   }
 
-  public async activate() {
+  public async activate(): Promise<void> {
     if (this.disposed) {
       throw new Error('Cannot activate a disposed ProjectConfig')
     }
@@ -30,10 +30,10 @@ class ProjectConfig {
     const watcher = () => {
       console.log(`Config file updated at ${this.configPath}. Reloading.`)
       this.readConfig()
-        .then(newConfig => {
+        .then((newConfig) => {
           this.applyConfig(newConfig || {})
         })
-        .catch(error => {
+        .catch((error) => {
           console.error(`Error reloading Config File at ${this.configPath}`, { error })
         })
     }
@@ -98,7 +98,7 @@ class ProjectConfig {
     return contents
   }
 
-  public dispose() {
+  public dispose(): void {
     this.disposed = true
     this.subscriptions.dispose()
   }
