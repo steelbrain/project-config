@@ -1,4 +1,4 @@
-### Upcoming
+### 1.0.2
 
 - Bundle with rollup and get rid of all install-time dependencies
 
