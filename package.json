@@ -8,7 +8,8 @@
     "test:lint": "eslint .",
     "test:prettier": "prettier -l '{src,spec}/**/*.ts'",
     "test": "(npm run test:typescript) && (npm run test:lint) && (npm run test:prettier)",
-    "prepare": "sb-babel-cli -o lib src --typescript",
+    "clean": "rm -rf lib",
+    "prepare": "npm run clean && BABEL_ENV=production rollup -c",
     "watch": "npm run prepare -- -w"
   },
   "repository": {
@@ -25,15 +26,18 @@
   "bugs": {
     "url": "https://github.com/steelbrain/project-config/issues"
   },
-  "dependencies": {
-    "tildify": "^2.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@babel/core": "^7.11.0",
     "@babel/preset-env": "^7.11.0",
     "@babel/preset-typescript": "^7.10.4",
+    "@rollup/plugin-babel": "^5.1.0",
+    "@rollup/plugin-commonjs": "^14.0.0",
+    "@rollup/plugin-node-resolve": "^8.4.0",
     "@types/atom": "^1.40.4",
     "eslint-config-steelbrain": "^10.0.0-beta2",
-    "typescript": "^3.7.5"
+    "rollup": "^2.23.0",
+    "tildify": "^2.0.0",
+    "typescript": "^3.9.7"
   }
 }
